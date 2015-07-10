@@ -1,0 +1,31 @@
+<div ng-controller="CalculatorController as vm">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="km" ng-model="vm.km"/>
+        <label class="mdl-textfield__label" for="km">Km Rodados</label>
+        <span class="mdl-textfield__error">Valor inválido!</span>
+    </div>
+    <br/>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="gasto" ng-model="vm.litrosGastos"/>
+        <label class="mdl-textfield__label" for="gasto">Litros</label>
+        <span class="mdl-textfield__error">Valor inválido!</span>
+    </div>
+    <br/>
+
+    <div ng-show="vm.rendimento !== 0">
+        <label>O rendimento foi de <b>{{vm.rendimento}} km/l</b></label>
+    </div>
+    <br/>
+    <br/>
+
+    <label for="combustivel">Combustível</label> <br/>
+    <select id="combustivel" ng-model="vm.combustivel">
+        <option ng-repeat="comb in vm.listaCombustiveis">{{comb}}</option>
+    </select>
+    <br/>
+    <br/>
+    <br/>
+
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" ng-click="vm.calcularRendimento()">Calcular</button>
+</div>
